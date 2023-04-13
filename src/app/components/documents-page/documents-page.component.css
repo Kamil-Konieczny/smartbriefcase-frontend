@@ -1,0 +1,142 @@
+html, body {
+  height: 100%;
+
+}
+
+
+.nav-topbar {
+  display: flex;
+  align-items: center;
+  /*background-color: #f1f1f1;*/
+  padding-bottom: 10px;
+  border-bottom: #f1f1f1 solid 2px ;
+}
+
+.logo a {
+  color: #333;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.search-form {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  background-color: #f1f1f1;
+  width: 25%;
+  padding: 1%;
+  margin-left: 35%;
+  font-size: 14px;
+  border: none;
+}
+
+.search-form button {
+  width: 5%;
+  padding: 1%;
+  margin-left: 10px;
+  background-color: #0099ff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.logout {
+  margin-left: 10px;
+}
+
+.logout-button {
+  background-color: #fff;
+  width: 70px;
+  padding: 12px;
+  border: #0099ff solid 2px;
+  color: #0099ff;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/*Responsiveness*/
+@media (max-width: 600px) {
+  .nav-topbar {
+    flex-wrap: wrap;
+  }
+  .search-form {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.content {
+  margin: 20px;
+}
+
+.add-new-doc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-doc-button {
+  background-color: #0099ff;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+.doc {
+  width: calc(14% - 20px);
+  float: left;
+  height: 15%;
+  min-width: 11.5%;
+  margin: 18px;
+  background-color: #e6e6e6;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.doc .doc-thumbnail {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.doc-top{
+  display: flex;
+}
+.doc-name-container{
+  overflow: hidden;
+}
+.doc-name {
+  margin-top: 3%;
+  font-size: 85%;
+  font-family: Calibri;
+}
+.doc-sample {
+  background-color: #f2f2f2;
+  width: 100%; /* set a fixed width */
+  height: 325px; /* set a fixed height */
+  border-radius: 4px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+  overflow: hidden; /* hide any overflowing content */
+}
+
+.doc-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ensure the photo fills the entire space */
+}
+
+
+

@@ -1,0 +1,32 @@
+<header class="nav-topbar">
+  <div class="logo">
+    <a href="#">SmartBriefcase</a>
+  </div>
+  <form class="search-form">
+    <input type="text" placeholder="Search...">
+    <button type="submit" class="search-button">Search</button>
+  </form>
+  <div class="logout">
+    <button (click)="logout()">Logout</button>
+  </div>
+</header>
+<div class="content">
+  <div class="add-new-doc">
+    <input type="file" (change)="uploadFile($event); sendDocument()" />
+  </div>
+    <div class="doc" *ngFor="let document of documents | async">
+      <div class="doc-top">
+        <div class="doc-thumbnail">
+          <i class="fas fa-home"></i>
+        </div>
+        <div class="doc-name-container">
+          <div class="doc-name">{{document.name}}</div>
+        </div>
+      </div>
+      <div class="doc-sample">
+        <img class="doc-photo" [src]="'data:image/jpeg;base64,' + document.fileBytes" />
+      </div>
+    </div>
+</div>
+
+
