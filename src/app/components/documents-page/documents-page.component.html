@@ -2,8 +2,9 @@
   <div class="logo">
     <a href="#">SmartBriefcase</a>
   </div>
-  <form class="search-form">
-    <input type="text" placeholder="Search...">
+  <form class="search-form" (ngSubmit)="getDocsByKeyword(searchInput.value)">
+    <button (click)="showDiv()" class="advanced-search">Advanced search</button>
+    <input type="text" placeholder="Key words.." #searchInput>
     <button type="submit" class="search-button">Search</button>
   </form>
   <div class="logout">
@@ -11,20 +12,61 @@
   </div>
 </header>
 <div class="content">
+  <div class="advanced-search-area" [style.display]="divDisplay" [style.width]="'100%'" [style.height]="'10%'">
+    <div style="  margin-left:17%;" class="search-option">
+      <form (ngSubmit)="getDocsByTitle(titleSearchInput.value)">
+        <label for="title-search">Search by Title:</label>
+        <br>
+        <input type="text" id="title-search" name="title-search" #titleSearchInput>
+        <br>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="search-option">
+      <form (ngSubmit)="getDocsByDate(minDateSearchInput.value, maxDateSearchInput.value)">
+        <label for="min-date">Minimum Date:</label>
+        <br>
+        <input type="date" id="min-date" name="min-date" #minDateSearchInput>
+        <br>
+        <label for="max-date">Maximum Date:</label>
+        <br>
+        <input type="date" id="max-date" name="max-date" #maxDateSearchInput>
+        <br>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="search-option">
+      <form (ngSubmit)="getDocsByWordNumber(minWordNumberSearchInput.value, maxWordNumberSearchInput.value)">
+        <label for="min-words">Minimum Number of Words:</label>
+        <br>
+        <input type="number" id="min-words" name="min-words" min="0" #minWordNumberSearchInput>
+        <br>
+        <label for="max-words">Maximum Number of Words:</label>
+        <br>
+        <input type="number" id="max-words" name="max-words" min="0" #maxWordNumberSearchInput>
+        <br>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
   <div class="add-new-doc">
     <input type="file" (change)="uploadFile($event); sendDocument()" />
   </div>
     <div class="doc" *ngFor="let document of documents | async">
       <div class="doc-top">
-        <div class="doc-thumbnail">
-          <i class="fas fa-home"></i>
-        </div>
         <div class="doc-name-container">
-          <div class="doc-name">{{document.name}}</div>
+          <div class="doc-name" [innerHTML]="sanitizeSubtext(document.title)"></div>
         </div>
       </div>
       <div class="doc-sample">
         <img class="doc-photo" [src]="'data:image/jpeg;base64,' + document.fileBytes" />
+      </div>
+      <div class="doc-subtext">
+      <div [innerHTML]="sanitizeSubtext(document.subtext)"></div>
+      </div>
+      <div class="doc-buttons">
+        <button class="download" (click)="download(document)">Download</button>
+        <button class="remove" (click)="remove(document)">Remove</button>
       </div>
     </div>
 </div>

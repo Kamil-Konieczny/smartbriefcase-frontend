@@ -3,13 +3,21 @@ html, body {
 
 }
 
-
 .nav-topbar {
   display: flex;
   align-items: center;
   /*background-color: #f1f1f1;*/
   padding-bottom: 10px;
   border-bottom: #f1f1f1 solid 2px ;
+}
+
+.search-form button.advanced-search {
+  background: none;
+  border: none;
+  color: #0099ff;
+  cursor: pointer;
+  margin-left: 25%;
+  margin-right:10px;
 }
 
 .logo a {
@@ -20,7 +28,6 @@ html, body {
 
 .search-form {
   flex-grow: 1;
-  display: flex;
   align-items: center;
 }
 
@@ -28,12 +35,11 @@ html, body {
   background-color: #f1f1f1;
   width: 25%;
   padding: 1%;
-  margin-left: 35%;
   font-size: 14px;
   border: none;
 }
 
-.search-form button {
+.search-form button.search-button {
   width: 5%;
   padding: 1%;
   margin-left: 10px;
@@ -91,18 +97,17 @@ html, body {
   border-radius: 4px;
 }
 
-
 .doc {
-  width: calc(14% - 20px);
+  margin-top:5%;
   float: left;
-  height: 15%;
-  min-width: 11.5%;
   margin: 18px;
   background-color: #e6e6e6;
   padding: 10px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
+  height: 35vh;
+  width: 10vw;
 }
 
 .doc .doc-thumbnail {
@@ -113,6 +118,8 @@ html, body {
 
 .doc-top{
   display: flex;
+  margin-bottom: 10%;
+  margin-left: 10%;
 }
 .doc-name-container{
   overflow: hidden;
@@ -124,19 +131,112 @@ html, body {
 }
 .doc-sample {
   background-color: #f2f2f2;
-  width: 100%; /* set a fixed width */
-  height: 325px; /* set a fixed height */
+  width: 100%;
+  height: 78%;
   border-radius: 4px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
   overflow: hidden; /* hide any overflowing content */
 }
-
+.doc-subtext{
+  width: 100%;
+  margin-top:3%;
+  background-color: white;
+  font-size: 85%;
+  font-family: Calibri;
+}
 .doc-photo {
   width: 100%;
   height: 100%;
   object-fit: contain; /* ensure the photo fills the entire space */
 }
+.highlight {
+  background-color: yellow;
+  color: yellow;
+  overflow: hidden; /* hide any overflowing content */
+}
+.advanced-search-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-family: Calibri;
+  border-bottom: #f1f1f1 solid 2px ;
+}
 
+.search-option {
+  float:left;
+  margin-left:12%;
+}
 
+.search-option label {
+  margin-top:20%;
+  margin-right: 5px;
+}
 
+.search-option input[type="text"],
+.search-option input[type="date"],
+.search-option input[type="number"] {
+  background-color: #f1f1f1;
+  padding: 1%;
+  font-size: 14px;
+  border: none;
+  margin-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 5px;
+  color: #a6a6a6;
+}
+
+.search-option button[type="submit"] {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-option button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+.doc:hover {
+  background-color: #ccc;
+}
+
+.doc:hover .doc-buttons {
+  display: flex;
+}
+
+.doc-buttons {
+  display: none;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.doc-buttons button {
+  flex: 1;
+  margin-right: 5px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 80%;
+  width:50%;
+  cursor: pointer;
+}
+
+.doc-buttons button.download {
+  color: green;
+  background-color: #f1f1f1;
+  border-color: green;
+}
+
+.doc-buttons button.remove {
+  color: red;
+  background-color: #f1f1f1;
+  border-color: red;
+}
